@@ -26,11 +26,11 @@ function love.load ()
 	files.cells = love.filesystem.getDirectoryItems('cells')
 	files.apis = love.filesystem.getDirectoryItems('apis')
 	apis = {}
-	for i, item in files.apis do
+	for i, item in ipairs(files.apis) do
 		if item:getExtension() == 'lua' then
 			apis[item:getFilename()] = require(item)
 	end end
-	for i, item in files.cells do
+	for i, item in ipairs(files.cells) do
 		if item:getExtension() == 'objcell' then
 			love.filesystem.mount(d, item:getFilename())
 	end end
